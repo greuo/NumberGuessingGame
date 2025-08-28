@@ -26,16 +26,14 @@ def playGame():
         else:
             print("congratulations! You guessed the right number!")
             playAgain = input("Would you like to play again? (Y/N): ").strip().lower()
-            if playAgain == 'y':
-                playGame()
-            else:
+            if playAgain != 'y':
                 print("Program ending...")
                 sys.exit(0)
-    restart = input("That was your last try. Do you want to restart? (Y/N): ").strip().lower()
-    if restart == 'y':
-        playGame()
-    else:
+
+    restart = input(f"The number was {number}. Would you like to play again? (Y/N): ").strip().lower()
+    if restart != 'y':
         print("Program ending...")
         sys.exit(0)
 
-playGame()
+while True:
+    playGame()
