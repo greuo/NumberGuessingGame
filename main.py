@@ -12,11 +12,14 @@ def INPUT():
         return INPUT()
 
 def playGame():
-    print("you have 10 tries to guess a number between 1 and 1000")
-    number = random.randint(1, 1000)
+    START = int(input("The range of random number start from: "))
+    END = int((input("To: ")))
+    attempts = int(input("How many tries do you want? (10 or less is recommended): "))
+    print(f"you have {attempts} tries to guess a number between {START} and {END}")
+    number = random.randint(START, END)
     global tries
     tries = 0
-    while tries < 10:
+    while tries < attempts:
         tries += 1
         tmp = INPUT()
         if tmp < number:
@@ -36,4 +39,5 @@ def playGame():
         sys.exit(0)
 
 while True:
+    print("You MUST enter a integer for all inputs.")
     playGame()
